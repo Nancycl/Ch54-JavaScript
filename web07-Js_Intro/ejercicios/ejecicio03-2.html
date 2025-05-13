@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Web 07, ejercicio 03.2</h1>
+    <p>Reusando el mismo script que en ejercicio 03</p>
+    <button onclick="saludar()">Click me</button>
+    <button onclick="cambiarFondo()">Cambia el fondo</button>
+     <button onclick="bodyColor('#cd6155')">Change color(red)</button>
+     <button onclick="bodyColor('#5499c7')">Change color(blue)</button>
+     <br>
+     <p id="green-pharagraph" onclick="changeToGreenColor()">Cambiara a color verde</p>
+     <p 
+        id="red-pharagraph" onclick="changeColor( document.getElementById   ('red-pharagraph') ,'red')">
+        Cambiara a color rojo</p>
+     <p onclick="changeColor(this , 'yellow')">Cambiara a color amarillo</p>
+     <p onclick="changeColor(this , 'blue')">Cambiara a color azul</p>
+
+     <script src="./myScript.js" defer></script>
+</body>
+</html>
