@@ -47,6 +47,12 @@ let valor2 = 4;
 console.log("El resultado de " + valor1 + " * " + valor2 + " = " + valor1 * valor2 + " pesos.");
 console.log(`El resultado de ${valor1} * ${valor2} = ${valor1*valor2} pesos.`);
 
+let nombre = "Jen";
+let regalo = "un perfume";
+
+console.log(`Hoy es el cumpleaños de ${nombre} y me gustaria obsequiarle ${regalo} que vaya a corde a su personalidad`);
+
+
 /*
  Tipos de datos number.
 
@@ -67,6 +73,13 @@ console.log( typeof +Infinity ); // 'number'
 console.log( typeof ( 3 + "Viernes temático" ) ); // 'string'
 console.log( typeof ( "3Viernes temático" ) ); // 'string'
 console.log( 4 / 0 ); // +Infinity
+
+
+const num1 = 42;
+console.log( typeof num1 === "number");
+
+const nameCh54 = "Luis";
+console.log( typeof nameCh54 === "string");
 
 
 /*
