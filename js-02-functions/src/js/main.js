@@ -45,7 +45,11 @@ o funciones se eleven al comienzo de su ámbito antes de que se ejecute el códi
 
 */
 
+function saludar( nombre ) {
+  console.log("Qué te gustaría de regalo de cumpleaños " + nombre );
+}
 
+saludar("Jen")
 
 
 
@@ -63,10 +67,46 @@ sintaxis:
     };
 */
 
+const darRegalo = function ( nombre, regalo){
+  console.log( `Felicidades ${nombre}, te traje ${regalo}`);
+};
 
+darRegalo("Jen" , "sopa");
 
+/*
+ Realizar una función declarada que sume dos números 
+ y retorne el resultado.
+ 
+ Realizar una función expresada que reste dos números 
+ y retorne el resultado.
+ 
+*/
+/* let numero1= 56;
+let numero2= 27;
+function sumatoriaDeLosNumeros(numero1, numero2){
+  return numero1 + numero2 ;
+}
 
+console.log( sumatoriaDeLosNumeros( numero1+numero2) );
 
+const restarDosNumeros = function( numero1, numero2){
+  return numero1 - numero2;
+}
+
+console.log( restarDosNumeros( numero1+numero2) ); */
+
+/* function sumar(a, b) {
+  return a + b;
+}
+const restar = function(a, b) {
+  return a - b;
+};
+let a ;
+let b ;
+a= Number(prompt("Ingrese el primer número"));
+b = Number(prompt("Ingrese el segundo número"));
+console.log(`Suma ${a} + ${b} = ${sumar(a, b)}`);
+console.log(`Resta ${a} - ${b} = ${restar(a, b)}`); */
 /*
  ------------ Funciones autoinvocadas -----------------------
              (selft-invoking functions)
@@ -77,8 +117,10 @@ sintaxis:
 
 */
 
-
-
+(function setUp() {
+  console.log("Configuración de la aplicación");
+})();
+/* setUp(); */
 
 
 /*
@@ -98,12 +140,50 @@ sintaxis:
     }
 */
 
+// Realizar una función declarada que calcule al área de un triángulo
+// al función debe retornar el resultado.
+
+//función declarada
+function areaDeUnTriangulo ( base, altura ){
+    console.log("El área del triangulo es:" + base * altura /2);
+}
+
+areaDeUnTriangulo( 12, 13);
+
+console.log(`El área del triángulo es: ${area(5, 10)}`);
+function area(a, b) {
+  return (a * b) / 2;
+}
+// función expresada
+
+const area2 = function (c,d){
+  return (c*d)/2;
+}
+console.log(`Resultado usando función expresada: ${area2(13,8)}`)
+
+//Función flecha
+
+function calculaArea3(base, altura) {
+  return base * altura / 2;
+}
+console.log(`Resultado usando arrow function: ${calculaArea3(12,20)}`)
+
+// Realizar una función flecha que calcule el área de un círculo
+// Área = pi * radio^2
+// Usar una función flecha para imprimir el resultado en un párrafo id="area-circulo"
+
+const calculaArea4= (radio) => Math.PI * radio ** 2;
+
+const imprimirResultado = (radio) => {
+  document.getElementById("area-circulo").innerText = calculaArea4(radio);
+}
+imprimirResultado(5);
 
 
-
-
-
-
+/* const circleArea = (radio) => Math.PI * radio ** 2;
+const imprimirAreaCirculo = (radio) =>
+  document.getElementById("area-circulo").innerText = circleArea(radio);
+imprimirAreaCirculo(5); */
 /*
  ------------ Parámetros por defecto -----------------------
              (default parameters)
@@ -122,7 +202,81 @@ Inicializa un parámetro de la función, si no se envía el argumento cuando se 
  Se pasa en el argumento como referencia ( sin parentesis).
  */
 
+const imprimirMensaje = ( fncCallBack ) => fncCallBack("Hola Ch54");
+                                            // 18("Hola Ch54");
+                                            // "patito"("Hola Ch54");
+                                            // console.log("Hola Ch54");
+                                            // undefined("Hola Ch54");
+ // imprimirMensaje( 18 ); // fncCallBack is not a function
+ // imprimirMensaje( "Patito" ); // fncCallBack is not a function
+ imprimirMensaje( console.log ); // "Hola Ch54"
+ // imprimirMensaje( console.log("Luis") ); //  fncCallBack is not a function
+ // imprimirMensaje( undefined ); //  fncCallBack is not a function
+
+imprimirMensaje (alert);
 
 
-
+const sumarDosNumeros = ( a, b) => a  + b;
   
+const sumarEImprimir = ( a, b , imprimir = console.log) => {
+   const resultado = sumarDosNumeros(a, b);
+   const mensaje = `La suma de ${a} + ${b} es: ${resultado}`;
+   imprimir(mensaje)
+}
+sumarEImprimir( 10, 14); // se imprimr en consola 
+const imprimirEnDOMParagraph = (mensaje) =>{
+  const refParagraph = document.getElementById("resultado-sumatoria");
+  refParagraph.innerText = mensaje;
+}
+const imprimirEnDOMH2 = (mensaje) =>{
+  const refParagraph = document.getElementById("resultadoH2-sumatoria");
+  refParagraph.innerText = mensaje;
+}
+sumarEImprimir( 10, 14, imprimirEnDOMParagraph); // se imprime en paragraph
+sumarEImprimir( 10, 14, imprimirEnDOMH2); // se imprime en h2
+sumarEImprimir( 10, 14, alert); // se imprime en alerta
+
+// Calcular el factorial de un número
+// factorial de 5: 5 * 4 * 3 * 2 * 1;
+function factorialConCicloFor( numero ) {
+    let factorial = 1;
+    for (let i=0; i < numero; i++) {
+      factorial *= (numero - i); // factorial = factorial * (numero - i);
+      console.log(`i: ${i}, factorial: ${factorial}, numero: ${numero - i}` );
+    }
+    return factorial;
+}
+console.log(`El factorial de 5 es: ${factorialConCicloFor(5)}`); // 120
+
+/*
+    parámetro   recursividad(n-1)   returnFnc
+    1            ----               1
+    2          2-1 = 1              2
+    3          3-1 = 2              6
+    4          4-1 = 3              24
+    5          5-1 = 4              120
+*/
+
+/*
+ Generar una función recursiva que muestre en consola un saludo
+ donde se indique el número saludo deseado.
+  ej: saludar 10 veces
+  Saludo 1
+  Saludo 2
+  Saludo 3
+  Saludo 4
+  Saludo 5
+  Saludo 6
+   ....
+  Saludo 10
+*/
+
+// calculando el factorial con recursividad
+
+function saludoConRecursividad( numeroSaludos){
+  if(numeroSaludos <= 0) return numeroSaludos;
+  const result = saludoConRecursividad(numeroSaludos - 1 ) ;
+  console.log(`Saludo ${numeroSaludos}`);
+  return result;
+}
+console.log(`Numero de saludo ${saludoConRecursividad(10)}`);
