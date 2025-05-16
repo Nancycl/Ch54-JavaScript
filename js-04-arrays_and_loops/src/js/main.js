@@ -54,6 +54,41 @@ for ( const color of colores ) {
 const cantantes = ["Juan Gabriel", "José José", "Rocío Dúrcal", "Ana Gabriel"];
 const refListaCantantes = document.getElementById("cantantes-lista");
 
+// Imprimir en consola cada uno de los cantantes, usandor for of
+// Imprimir en consola cada uno de los cantantes, usandor for of
+// arrow function
+// La salida deber ser como "Juan Gabriel - José José - Rocío Dúrcal - Ana Gabriel -"
+const imprimirCantantes2 = ( listaCantantes ) => {
+    let cantantesConcatenados = "";
+    for (const cantante of listaCantantes) {
+        //cantantesConcatenados = cantantesConcatenados + cantante + " - ";
+        cantantesConcatenados += "<li>" + cantante + "</li>";
+    }
+    return cantantesConcatenados;
+}
+
+const imprimirEnDocumento = (arreglo) => document.getElementById("cantantes-lista").innerHTML = imprimirCantantes2(arreglo);
+imprimirEnDocumento(cantantes);
+
+/* const unorderListCantantes = arregloCantantes => { 
+    let concatenacion =" ";
+        for (const cantante of arregloCantantes) {
+            concatenacion += "<li>" + cantante + "</li>";
+}
+return concatenacion;
+}
+const imprimirDocumento = (arregloFinal) => document.getElementById("cantantes-lista").innerHTML = unorderListCantantes(arregloFinal);
+imprimirDocumento(cantantes); */ 
+
+
+/* for (let i = 0; i < cantantes.length; i++) {
+    const element = cantantes[i];
+    console.log(element);    
+}
+
+for ( const cantante of cantantes ) {
+    console.log( cantante );
+} */
 
 
 // ------------------- Uso de break en ciclos ----------------------------
@@ -69,6 +104,8 @@ for ( ;   ;  ){
     }
 }
 
+
+
 // ------------------- Uso de break y label en ciclos anidados ----------------------------
 multiplicando:
 for (let i = 1; i <= 7; i++ ){
@@ -81,7 +118,11 @@ for (let i = 1; i <= 7; i++ ){
 }
 
 
-
+let myIteration; // undefined
+for (myIteration = 0; myIteration <= 5; myIteration++) {
+    console.log("For loop", myIteration ); //  0...5    
+}
+console.log("Final", myIteration); // 6
 
 
 // ------------------- Uso de continue en ciclos ----------------------------
@@ -120,3 +161,27 @@ for (let i = 0 ; i <= 5; i++ ){
 */
 
 
+/*
+ Pregunta al usuario si quire que se genere su númer de la suerte.
+ Si la respuesta es "si", genera de forma aleatoria un número.
+ En cas contrario, despedirse.
+*/ 
+while(  confirm("¿Quieres tu número de la suerte")  ){
+    const numeroSuerte = Math.random();
+    console.log("Tu número de la suerte es: " + numeroSuerte);
+}
+
+
+/* 
+ Uso de Math.random();
+ Generar 5 números aleatorios.
+ Los números deben estar entre el 0.0 y 10.0(sin incluir 10.0)
+*/
+const generarNumerosAleatorios = (cantidad) => {
+    let numerosAleatorios = [];
+    for (let i = 0; i < cantidad; i++) {
+        const numeroAleatorio = Math.random() * 10;
+        numerosAleatorios.push(numeroAleatorio);
+    }
+    return numerosAleatorios;
+};
