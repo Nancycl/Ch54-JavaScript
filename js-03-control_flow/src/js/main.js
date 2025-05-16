@@ -42,7 +42,55 @@
 
 */
 
+/* 
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18, la función debe
+ retornar el mensaje "Eres mayor de edad".
+ En caso contrario, retornar el mensaje "Eres menor de edad".
+ - Realizar la versión de if-else sin usar el bloque de código {}
+*/
 
+const verificarEdad = edad => {
+    if (edad >= 18) return "Eres mayor de edad";
+    else return "Eres menor de edad";
+}
+const resultado = verificarEdad(19);
+console.log(resultado);
+
+/*
+ Crear un arrow function que reciba el valor de edad.
+ Si la edad es mayor o igual a 18 y menor o igual a 30
+                 ( evalur con 18 Y(&&) evaluar con 30        )
+ la función debe retornar el mensaje "Tu luchador es Místico".
+ Si es mayor o igual a 31 el mensaje "Tu luchador es el perro Aguayo".
+ Si es menor a 18 el mensaje "Tu luchador es Penta"
+*/
+
+const nuevaEdad = tuEdad => {
+    if (tuEdad >= 18 && tuEdad <= 30) return "Tu luchador es Místico";
+    else if (tuEdad >= 31) return "Tu luchador es el perro Aguayo";
+    else return "Tu luchador es el Penta";
+}
+const imprimir = nuevaEdad (28);
+console.log(imprimir);
+
+
+{
+    let myVarLet = 30;
+    const myVarConst = 40;
+    var myVarVar = 50;
+    console.log(myVarLet, myVarConst, myVarVar)
+    {
+        let myVarLet = 100;
+        const myVarConst = 110;
+        var myVarVar = 120;
+        console.log(myVarLet, myVarConst, myVarVar)
+    }
+    console.log(myVarLet, myVarConst, myVarVar)
+}
+
+
+//Ejercicios mentales
 
 
 //--------------- Condicional Switch --------------------------
@@ -73,8 +121,32 @@
 
 */
 
-
-
+const evaluarNombre = ( nombre ) => {
+    let resultado;
+    switch ( nombre){
+        case "Lua":
+            resultado = "Es de Abril";
+            break;
+        case "Borrego": 
+        case "Besito":
+        case "Fijól":
+        case "Paco":
+            resultado = "Es de Yessica";
+            break;
+        case "Milo":
+            resultado = "Es de Carlos";
+            break
+        case "Cuchara":
+            resultado = "Es de Ricardo";
+            break;
+        default:
+            resultado ="No se sabe de quién es";        
+    }
+    return resultado;
+}
+console.log( evaluarNombre("Lua") ); // Es de Abril
+console.log( evaluarNombre("Milo") ); // Es de Carlos
+console.log( evaluarNombre("Borrego") ); // Es de Jessica
 
 /**
  * Función que reciba la velocidad de un ventilador y devuelva el mensaje
@@ -86,10 +158,43 @@
  * Cualquier otro valor: Velocidad desconocida
  * @param {number} velocidad
  * @returns {string} mensaje
- */
+*/
+/* versión con switch
+*/
+const velocidad = (nivel) => {
+    let mensaje;
+    switch (nivel) {
+        case 0:
+            mensaje = "Velocidad 0: Apagado";
+            break;
+        case 1:
+            mensaje = "Velocidad 1: Baja";
+            break;
+        case 2:
+            mensaje = "Velocidad 2: Media";
+            break;
+        case 3:
+            mensaje = "Velocidad 3: Alta";
+            break;
+        default:
+            mensaje = "Velocidad: desconocida";
+    }
+    return mensaje;
+}
+console.log(velocidad(0));
+/* version con if-else
+*/ 
 
+const verificarVelocidad = nivel2 => {
+    if (nivel2 === 0) return "Velocidad 0: Apagado";
+    else if (nivel2 === 1) return "Velocidad 1: Baja";
+    else if (nivel2 === 2) return "Velocidad 2: Media";
+    else if (nivel2 === 3) return "Velocidad 3: Alta";
+    else return "Velocidad: desconocida";
 
-
+}
+const numeroDeVelocidad = verificarVelocidad(2);
+console.log(numeroDeVelocidad);
 
 // ------------------------ Operador ternario --------------------------
 /*
@@ -100,8 +205,105 @@
   condición ? expresiónSiCondiciónEsVerdadera : expresionSiCondiciónEsFalsa; 
 
 */
+const verficarPagoDeTarjeta = ( estaPagado ) =>{
+    let msj;
+    if( estaPagado) {
+        msj = "La tarjta ha sido pagada";
+    } else {
+        msj = "La tarjeta no ha sido pagada";
+    }
+    return msj;
+}
+console.log( verficarPagoDeTarjeta( true ) );
+console.log( verficarPagoDeTarjeta( false ) );
 
 
+const verficarPagoDeTarjetaUsandoTernario = ( estaPagado ) =>{
+    return estaPagado ? "La tarjeta ha sido pagada" : "La tarjeta no ha sido pagada";
+}
+console.log( verficarPagoDeTarjetaUsandoTernario( true ) ); // "La tarjta ha sido pagada"
+console.log( verficarPagoDeTarjetaUsandoTernario( false ) ); // "La tarjeta no ha sido pagada"
+
+
+/*
+ Dado un número entero, imprimir:
+ "Negativo":  si el número es menor a 0.
+ "Cero":  si el número es  0.
+ "Positivo":  si el número es mayor a cero pero menor a 100.
+ "Grande": si el número es mayor o igual a 100.
+ - Realizar una función que reciba el número y retorne el mensaje.
+ - El retorno debe ser impreso en la consola.
+ - Realizar una versión if-else, switch y operador ternario.
+*/
+
+
+const tipoDeNumero = numero => {
+    if (numero < 0 ) return "Negativo";
+    else if (numero == 0) return "Cero";
+    else if (numero > 0 && numero < 100) return "Positivo"
+    else return "Grande";
+}
+const resultadoNumero = tipoDeNumero(-19);
+console.log(resultadoNumero);
+
+
+const tipoDeNumero2 = (numero2) => {
+    let mensajePorElTipoDeNumero;
+    switch (numero2) {
+        case numero2 < 0:
+            mensaje = "Negativo";
+            break;
+        case numero2 = 0:
+            mensaje = "Cero";
+            break;
+        case numero2 > 0 && numero2 < 100:
+            mensaje = "Positivo";
+            break;
+        default :
+            mensaje = "Grande";
+    }
+    return mensaje;
+}
+console.log(tipoDeNumero2(0));
+
+// ----- Function Switch ----------
+function evaluarElNumeroSwitch(numero) {
+
+    switch ( true ) {
+        case (numero < 0):
+            mensaje = "Negativo";
+            break;
+        case (numero === 0):
+            mensaje = "Cero";
+            break;
+        case (numero >0 && numero < 100):
+            mensaje = "Positivo";
+            break;
+        case (numero >= 100):
+            mensaje = "Grande";
+            break;
+        default:
+            mensaje = "Numero desconocido";
+    }
+    return mensaje;
+};
+
+console.log(evaluarElNumeroSwitch(-45) ); // Negativo
+console.log(evaluarElNumeroSwitch(0) ); // Cero
+console.log(evaluarElNumeroSwitch(45) ); // Positivo
+console.log(evaluarElNumeroSwitch(100) ); // Grande
+
+// Usando operador ternario
+function evaluarNumeroTernario(num) {
+    return num < 0 ? "Negativo" :
+           num === 0 ? "Cero" :
+           num < 100 ? "Positivo" :
+           "Grande";
+}
+console.log(evaluarNumeroTernario(-5));
+console.log(evaluarNumeroTernario(0));
+console.log(evaluarNumeroTernario(99));
+console.log(evaluarNumeroTernario(1000));
 
 
 /**
