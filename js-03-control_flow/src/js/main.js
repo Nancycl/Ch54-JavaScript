@@ -54,8 +54,7 @@ const verificarEdad = edad => {
     if (edad >= 18) return "Eres mayor de edad";
     else return "Eres menor de edad";
 }
-const resultado = verificarEdad(19);
-console.log(resultado);
+console.log(verificarEdad(19));
 
 /*
  Crear un arrow function que reciba el valor de edad.
@@ -248,23 +247,22 @@ console.log(resultadoNumero);
 
 
 const tipoDeNumero2 = (numero2) => {
-    let mensajePorElTipoDeNumero;
     switch (numero2) {
         case numero2 < 0:
-            mensaje = "Negativo";
+            mensajePorElTipoDeNumero = "Negativo";
             break;
         case numero2 = 0:
-            mensaje = "Cero";
+            mensajePorElTipoDeNumero = "Cero";
             break;
         case numero2 > 0 && numero2 < 100:
-            mensaje = "Positivo";
+            mensajePorElTipoDeNumero = "Positivo";
             break;
         default :
-            mensaje = "Grande";
+            mensajePorElTipoDeNumero = "Grande";
     }
-    return mensaje;
+    return mensajePorElTipoDeNumero;
 }
-console.log(tipoDeNumero2(0));
+console.log(tipoDeNumero2(5));
 
 // ----- Function Switch ----------
 function evaluarElNumeroSwitch(numero) {
@@ -314,7 +312,11 @@ console.log(evaluarNumeroTernario(1000));
  *  @returns {string} mensaje
  */
 
-
+function edadPersona(edad) {
+    return edad >= 18 ? "Eres mayo de edad" :
+           "Eres menor de edad";
+}
+console.log(edadPersona(16));
 
 
 // ------------------- Ejercicio Estaciones del año --------------------------
@@ -332,3 +334,30 @@ console.log(evaluarNumeroTernario(1000));
 */
 
 
+function mesActual(mes) {
+    let resultadoActual;
+    switch(mes) {
+        case "12": 
+        case "1":
+        case "2":
+        resultadoActual = "invierno";
+        break;
+        case "3": 
+        case "4":
+        case "5":
+        resultadoActual = "primavera";
+        break;
+        case "6": 
+        case "7":
+        case "8":
+        resultadoActual = "verano";
+        break;
+        case "9": 
+        case "10":
+        case "11":
+        resultadoActual = "otoño";
+        break;
+    }
+    return resultadoActual;
+} 
+console.log(mesActual("12"));
