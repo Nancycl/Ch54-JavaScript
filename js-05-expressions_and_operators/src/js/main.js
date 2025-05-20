@@ -119,6 +119,19 @@ console.log("pear".localeCompare("orange"));  //
 console.log("a".localeCompare("A", "en", { sensitivity: "base" })); // 
 
 
+/*
+  Uso del caracter de escape:
+  \n  nueva línea
+  \t  tabulación
+  \\  barra invertida
+  \'  comilla simple
+  \"  comilla doble
+  \`   comilla invertida
+  \b  retroceso
+   \uXXXX  unicode   \u00A9 = ©
+*/
+
+
 // Number: devuelve verdadero solo si ambos operandos tienen el mismo valor. 
 // +0 y -0 se tratan como el mismo valor. 
 // Si alguno de los operandos es NaN, devuelve falso.
@@ -287,7 +300,7 @@ loggedIn && console.log("Bienvenido Usuario"); //
 // ------------ ejercicio-------------------------------
 // Mostrar en consola "Acceso permitido" solo si la variable esAdmin = true
 let esAdmin = true;
-
+esAdmin && console.log("Acceso permitido");
 
 // ------------------------------------------------------
 let nombre = "";
@@ -302,5 +315,8 @@ console.log( "Hola " + usuario ); // Invitado
   Imprimir en consola "Acceso Denegado" Si la variable esAutorizado = false
   En caso contrario imprimir "Acceso concedido".
 */
-let autorizado = true;
+let esAutorizado = true;
 
+console.log( esAutorizado && "Acceso concedido" || "Acceso Denegado" );
+
+console.log( esAutorizado ? "Acceso Concedido" : "Acceso Denegado" );
